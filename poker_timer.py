@@ -5,8 +5,11 @@ import time
 config_file = 'D:\\poker_timer\\pk_config.json'
 
 FONT = 'arial'
-BACKGROUND = 'green'
-
+BACKGROUND = 'SpringGreen2'
+FG_CLOCK_PAUSE = 'gold2'
+FG_CLOCK_COUNTDOWN = 'firebrick1'
+FG_CLOCK = 'mint cream'
+FG_TEXT = 'mint cream'
 
 class Stopwatch(Frame):
    
@@ -19,25 +22,25 @@ class Stopwatch(Frame):
         self.reset()
 
     def create_widgets(self):
-        self.lbl_players = Label(root,font=(FONT,40), fg='white', bg=BACKGROUND)
+        self.lbl_players = Label(root,font=(FONT,40), fg=FG_TEXT, bg=BACKGROUND)
         self.lbl_players.place(x = 100, y = 100, width=1600, height=100)
 
-        self.btn_player_inc = Button(root,text='+',command=self.btn_player_inc_handler, font=(FONT,20), fg='white', bg=BACKGROUND)
+        self.btn_player_inc = Button(root,text='+',command=self.btn_player_inc_handler, font=(FONT,20), fg=FG_TEXT, bg=BACKGROUND)
         self.btn_player_inc.place(x=1600,y=100,width=100,height=50)
 
-        self.btn_player_dec = Button(root,text='-', command=self.btn_player_dec_handler, font=(FONT,20), fg='white', bg=BACKGROUND)
+        self.btn_player_dec = Button(root,text='-', command=self.btn_player_dec_handler, font=(FONT,20), fg=FG_TEXT, bg=BACKGROUND)
         self.btn_player_dec.place(x=1600,y=150,width=100,height=50)
         
-        self.lbl_clock = Label(root, font=(FONT,200), fg='white', bg=BACKGROUND )
+        self.lbl_clock = Label(root, font=(FONT,200), fg=FG_CLOCK, bg=BACKGROUND )
         self.lbl_clock.place(x = 100, y = 200, width=1600, height=300)
 
-        self.lbl_small=Label(root, font=(FONT,75), fg='white', bg=BACKGROUND  )
+        self.lbl_small=Label(root, font=(FONT,75), fg=FG_TEXT, bg=BACKGROUND  )
         self.lbl_small.place(x=100,y=500,width=800,height=200)
 
-        self.lbl_big=Label(root, font=(FONT,75), fg='white', bg=BACKGROUND)
+        self.lbl_big=Label(root, font=(FONT,75), fg=FG_TEXT, bg=BACKGROUND)
         self.lbl_big.place(x=900,y=500,width=800,height=200)
 
-        self.btn_main=Button(root, command=self.btn_main_handler,font=(FONT,40), fg='white', bg=BACKGROUND)
+        self.btn_main=Button(root, command=self.btn_main_handler,font=(FONT,40), fg=FG_TEXT, bg=BACKGROUND)
         self.btn_main.place(x = 100, y = 700, width=1600, height=100)
 
     ### main button handler, updates dependent on status
@@ -66,11 +69,11 @@ class Stopwatch(Frame):
             self.btn_main['text'] = 'PAUSE'
 
         if self.status == 'PAUSED':
-            self.lbl_clock['fg'] = 'grey'    
+            self.lbl_clock['fg'] = FG_CLOCK_PAUSE 
         elif self.time <= 10 and self.time > 0:
-            self.lbl_clock['fg'] = 'red'
+            self.lbl_clock['fg'] = FG_CLOCK_COUNTDOWN
         else:
-            self.lbl_clock['fg'] = 'white'    
+            self.lbl_clock['fg'] = FG_CLOCK    
 
     ## needs TLC
     def beep(self):
