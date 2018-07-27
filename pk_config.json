@@ -1,12 +1,12 @@
 {
-	"base_seconds": 600
+	"base_seconds": 420
 	, "player_seconds": 60
 	, "players": 5
 	, "levels":
 	[
 		{"level": 1, "small_blind":50, "big_blind":100}
 		, {"level": 2, "small_blind":100, "big_blind":200}
-		, {"level": 3, "small_blind":150, "big_blind":350}
+		, {"level": 3, "small_blind":150, "big_blind":300}
 		, {"level": 4, "small_blind":200, "big_blind":400}
 		, {"level": 5, "small_blind":250, "big_blind":500}
 		, {"level": 6, "small_blind":300, "big_blind":600}
